@@ -14,7 +14,6 @@ class ProductForm extends Component {
   }
 
   render() {
-    console.log(this.state.values);
     return (
       <div>
         <h3>Product Input Form</h3>

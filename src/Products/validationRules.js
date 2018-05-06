@@ -1,14 +1,18 @@
-export default value => ({
-  error:
-    !value || !/Commando 450/.test(value)
-      ? "Input must contain 'Commando 450'"
-      : null,
-  warning:
-    !value || !/^Commando 450$/.test(value)
-      ? "Input should equal just 'Commando 450'"
-      : null,
-  success:
-    value && /Commando 450/.test(value)
-      ? "Thanks for entering 'Commando 450'!"
-      : null
-});
+import validate from 'validate.js';
+
+const constraint = {
+  value: {
+    presence: {
+      allowEmpty: false
+    }
+  }
+};
+
+export default value => {
+  const result = validate({ value: value }, constraint);
+  return {
+    error: result ? result.value : null,
+    warning: result ? result.value : null,
+    success: !result ? 'Valid.' : null
+  };
+};

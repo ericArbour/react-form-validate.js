@@ -1,0 +1,17 @@
+h2 {
+  margin: 1rem;
+}
+
+input {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+select {
+  margin: 0 auto 1rem;
+  display: block;
+}
+
+label {
+  margin-bottom: 0;
+}

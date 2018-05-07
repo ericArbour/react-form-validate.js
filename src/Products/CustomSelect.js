@@ -1,12 +1,12 @@
 import React from 'react';
-import { Field } from 'react-form';
+import { Field, Select } from 'react-form';
 import Message from './Message';
 
-const CustomText = props => (
+const CustomSelect = props => (
   <Field field={props.field}>
     {fieldApi => {
       console.log(fieldApi);
-      const { onChange, onBlur, field, ...rest } = props;
+      const { onChange, onBlur, field, placeholder, ...rest } = props;
       const {
         value,
         error,
@@ -19,7 +19,7 @@ const CustomText = props => (
 
       return (
         <div>
-          <input
+          <select
             {...rest}
             value={value || ''}
             onChange={e => {
@@ -34,7 +34,13 @@ const CustomText = props => (
                 onBlur(e);
               }
             }}
-          />
+            defaultValue={placeholder}
+          >
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+          </select>
           {error && touched ? <Message color="red" message={error} /> : null}
           {!error && warning && touched ? (
             <Message color="orange" message={warning} />
@@ -48,4 +54,4 @@ const CustomText = props => (
   </Field>
 );
 
-export default CustomText;
+export default CustomSelect;

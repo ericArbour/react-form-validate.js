@@ -1,15 +1,15 @@
 export default [
   {
     label: 'Vandelay Industries',
-    value: 0
-  },
-  {
-    label: 'Pendant Publishing',
     value: 1
   },
   {
-    label: 'Kramerica Industries',
+    label: 'Pendant Publishing',
     value: 2
+  },
+  {
+    label: 'Kramerica Industries',
+    value: 3
   },
   {
     label: 'Kruger Industrial Smoothing',

@@ -5,8 +5,7 @@ import Message from './Message';
 const CustomSelect = props => (
   <Field field={props.field}>
     {fieldApi => {
-      console.log(fieldApi);
-      const { onChange, onBlur, field, placeholder, ...rest } = props;
+      const { onChange, onBlur, field, options, ...rest } = props;
       const {
         value,
         error,
@@ -21,7 +20,7 @@ const CustomSelect = props => (
         <div>
           <select
             {...rest}
-            value={value || ''}
+            value={value || 0}
             onChange={e => {
               setValue(e.target.value);
               if (onChange) {
@@ -34,12 +33,15 @@ const CustomSelect = props => (
                 onBlur(e);
               }
             }}
-            defaultValue={placeholder}
           >
-            <option value="volvo">Volvo</option>
-            <option value="saab">Saab</option>
-            <option value="mercedes">Mercedes</option>
-            <option value="audi">Audi</option>
+            <option key={0} value={''}>
+              Choose a client
+            </option>
+            {options.map(option => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
           </select>
           {error && touched ? <Message color="red" message={error} /> : null}
           {!error && warning && touched ? (

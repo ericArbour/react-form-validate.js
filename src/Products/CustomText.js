@@ -5,7 +5,6 @@ import Message from './Message';
 const CustomText = props => (
   <Field field={props.field}>
     {fieldApi => {
-      console.log(fieldApi);
       const { onChange, onBlur, field, ...rest } = props;
       const {
         value,

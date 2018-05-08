@@ -33,13 +33,7 @@ class ProductForm extends Component {
                 <label htmlFor="description">Product Description</label>
                 <CustomText field="description" id="description" />
                 <label htmlFor="client">Client</label>
-                <CustomSelect
-                  field="client"
-                  id="client"
-                  options={clients}
-                  placeholder={'Choose a client'}
-                  className="mb-4"
-                />
+                <CustomSelect field="client" id="client" options={clients} />
                 <button type="submit" className="btn btn-primary">
                   Submit Product
                 </button>

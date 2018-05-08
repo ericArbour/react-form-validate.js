@@ -25,27 +25,27 @@ const constraint = {
 
 export default values => {
   const result = validate(values, constraint);
-  console.log(result);
+
   return {
     name: {
-      error: result.name ? result.name : null,
-      warning: result.name ? result.name : null,
-      success: !result.name ? 'Valid.' : null
+      error: result && result.name ? result.name : null,
+      warning: result && result.name ? result.name : null,
+      success: !result || !result.name ? 'valid' : null
     },
     code: {
-      error: result.code ? result.code : null,
-      warning: result.code ? result.code : null,
-      success: !result.code ? 'Valid.' : null
+      error: result && result.code ? result.code : null,
+      warning: result && result.code ? result.code : null,
+      success: !result || !result.code ? 'valid' : null
     },
     description: {
-      error: result.description ? result.description : null,
-      warning: result.description ? result.description : null,
-      success: !result.description ? 'Valid.' : null
+      error: result && result.description ? result.description : null,
+      warning: result && result.description ? result.description : null,
+      success: !result || !result.description ? 'valid' : null
     },
     client: {
-      error: result.client ? result.client : null,
-      warning: result.client ? result.client : null,
-      success: !result.client ? 'Valid.' : null
+      error: result && result.client ? result.client : null,
+      warning: result && result.client ? result.client : null,
+      success: !result || !result.client ? 'valid' : null
     }
   };
 };
